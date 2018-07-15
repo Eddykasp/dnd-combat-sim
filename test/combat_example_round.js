@@ -20,12 +20,6 @@ p2.addMember(o2);
 c.addParty(p1, 'players');
 c.addParty(p2, 'goblins');
 
-c.initiateCombat();
+c.initiateCombat(console.log);
 
-console.log('Turn order:');
-c.turnList.forEach(function(member){
-  console.log(member.combatant.id);
-});
-console.log('');
-
-c.runRound();
+c.runRound(console.log);

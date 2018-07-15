@@ -7,7 +7,7 @@ module.exports = function(){
     this.parties[id] = party;
   };
   this.turnList = [];
-  this.initiateCombat = function(){
+  this.initiateCombat = function(logger){
     let self = this;
     for(let party in self.parties){
       self.parties[party].members.forEach(function(combatant){
@@ -21,8 +21,13 @@ module.exports = function(){
     self.turnList.sort(function(a, b) {
       return (a.roll < b.roll) ?  1 : ((b.roll < a.roll) ? -1 : 0);
     });
+    logger('Turn Order:');
+    self.turnList.forEach(function(member){
+      logger(member.combatant.id);
+    });
+    logger('\n');
   };
-  this.runRound = function(){
+  this.runRound = function(logger){
     let self = this;
     self.turnList.forEach(function(current_combatant){
       let combatant = current_combatant.combatant;
@@ -47,11 +52,14 @@ module.exports = function(){
         if (target.isHit(atkRoll)){
           let damage = combatant.damageRoll();
           target.takeDamage(damage);
-          console.log(combatant.id + ' hit ' + target.id + ' and dealt ' + damage + '.');
+          logger(combatant.id + ' hit ' + target.id + ' and dealt ' + damage + '.');
         } else {
-          console.log(combatant.id + ' missed ' + target.id + '.');
+          logger(combatant.id + ' missed ' + target.id + '.');
         }
       }
     });
+  };
+  this.runFight = function(){
+
   };
 }
