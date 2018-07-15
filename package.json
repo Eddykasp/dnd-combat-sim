@@ -1,5 +1,5 @@
 {
-  "name": "dnd_combat_sim",
+  "name": "dnd-combat-simulator",
   "version": "0.0.1",
   "description": "A combat simulator for simple DnD encounters to calculate expected win probabilities.",
   "main": "index.js",
