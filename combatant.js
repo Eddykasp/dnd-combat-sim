@@ -5,6 +5,8 @@ const dice = require('./dice_roller')
  *
  * @constructor
  *
+ * @param {string} id
+ *   Identifier for log prints.
  * @param {number} hp
  *   Starting hit points for the combatant.
  * @param {number} ac
@@ -20,7 +22,8 @@ const dice = require('./dice_roller')
  * @param {number} dmg_bonus
  *   Damage bonus from ability modifier.
  */
-module.exports = function(hp, ac, initiative, atk, dmg, dmg_dice, dmg_bonus){
+module.exports = function(id, hp, ac, initiative, atk, dmg, dmg_dice, dmg_bonus){
+  this.id = id;
   this.hp = hp;
   this.ac = ac;
   this.initiative = initiative;
