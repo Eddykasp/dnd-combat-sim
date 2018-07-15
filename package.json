@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Eddykasp/dnd_combat_sim.git"
+    "url": "git+https://github.com/Eddykasp/dnd-combat-sim.git"
   },
   "author": "Max Kasperowski",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Eddykasp/dnd_combat_sim/issues"
+    "url": "https://github.com/Eddykasp/dnd-combat-sim/issues"
   },
-  "homepage": "https://github.com/Eddykasp/dnd_combat_sim#readme",
+  "homepage": "https://github.com/Eddykasp/dnd-combat-sim#readme",
   "dependencies": {
     "underscore": "^1.9.1"
   },
