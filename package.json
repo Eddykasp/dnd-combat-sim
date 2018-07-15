@@ -4,11 +4,21 @@
   "description": "A combat simulator for simple DnD encounters to calculate expected win probabilities.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape test/*.test.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eddykasp/dnd_combat_sim.git"
   },
   "author": "Max Kasperowski",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eddykasp/dnd_combat_sim/issues"
+  },
+  "homepage": "https://github.com/Eddykasp/dnd_combat_sim/issues#readme",
   "dependencies": {
-    "browserify": "^16.2.2"
+    "browserify": "^16.2.2",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
   }
 }
