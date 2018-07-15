@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/Eddykasp/dnd_combat_sim/issues"
   },
-  "homepage": "https://github.com/Eddykasp/dnd_combat_sim/issues#readme",
+  "homepage": "https://github.com/Eddykasp/dnd_combat_sim#readme",
   "dependencies": {
     "underscore": "^1.9.1"
   },
