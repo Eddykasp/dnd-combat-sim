@@ -75,7 +75,7 @@ module.exports = function(){
   };
   this.isFightOnGoing = function(){
     let alive = {};
-    for ( c in this.turnList ) {
+    for ( let c in this.turnList ) {
       if (!this.turnList[c].combatant.isDead()){
         alive[this.turnList[c].party_id] = 1;
         if (Object.keys(alive).length > 1){
@@ -87,11 +87,20 @@ module.exports = function(){
   };
   this.survivors = function(){
     let alive = [];
-    for ( c in this.turnList ) {
+    for ( let c in this.turnList ) {
       if (!this.turnList[c].combatant.isDead()){
         alive.push(this.turnList[c]);
       }
     }
     return alive;
   };
-}
+  this.reset = function(){
+    this.turnList = [];
+    let self = this;
+    for (let party in self.parties){
+      self.parties[party].members.forEach(function(combatant){
+        combatant.reset();
+      });
+    }
+  };
+};

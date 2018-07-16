@@ -25,6 +25,7 @@ const dice = require('./dice_roller')
 module.exports = function(id, hp, ac, initiative, atk, dmg, dmg_dice, dmg_bonus){
   this.id = id;
   this.hp = hp;
+  this.max_hp = hp;
   this.ac = ac;
   this.initiative = initiative;
   this.atk = atk;
@@ -61,5 +62,8 @@ module.exports = function(id, hp, ac, initiative, atk, dmg, dmg_dice, dmg_bonus)
     } else {
       return false;
     }
+  };
+  this.reset = function(){
+    this.hp = this.max_hp;
   };
 };
