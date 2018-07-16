@@ -25,7 +25,7 @@ This is a dice rolling utility function, which takes two parameters:
 - dice_type (number): The number of sides on the dice
 - modifier (number): The modifier is added to the result of the throw
 
-In order to simulate a rolling a d8+2 we call the function as follows:
+In order to simulate rolling a d8+2 we call the function as follows:
 ```
 let roll = dnd.Dice(8, 2);
 ```
