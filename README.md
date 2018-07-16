@@ -3,6 +3,12 @@
 # dnd-combat-simulator
 This package provides an API to simulate simple DnD combat encounters and determine win ratios for the participating parties.
 
+## Install
+Install using npm
+```
+npm i dnd-combat-simulator
+```
+
 ## API
 The API provides the following interfaces:
 ```
@@ -73,7 +79,7 @@ Rolls initiative for all combatants and sorts them into list accessible in ```co
 ##### runRound(logger) : undefined
 Goes through all alive combatants and lets them make attacks. The logger parameter must be a function that takes a string, a typical candidate would be ```console.log```.
 ##### runFight(logger) : list
-Runs a whole fight and returns a list of the surviving combatants. The logger parameter must be a function that takes a string, a typical candidate would be ```console.log```.
+Runs a whole fight and returns a list of the surviving combatants. The objects in the list have the following structure ```{party_id: string, combatant: combatant, roll: number}```. The logger parameter must be a function that takes a string, a typical candidate would be ```console.log```.
 ##### isFightOnGoing() : boolean
 Checks whether the fight is still ongoing by checking whether there are still valid opponents left.
 ##### survivors() : list
