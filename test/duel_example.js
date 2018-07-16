@@ -17,7 +17,7 @@ c.addParty(p2, 'owlbear');
 
 let winners = [];
 
-for (let i = 0; i < 100; i++){
+for (let i = 0; i < 10000; i++){
   winners.push(c.runFight(console.log));
   c.reset();
 }
@@ -37,5 +37,5 @@ winners.forEach(function(winner_party){
 
 console.log('\nWin Ratios');
 for (let p in parties){
-  console.log(p + ': ' + parties[p] + '%');
+  console.log(p + ': ' + parties[p]/100 + '%');
 }
