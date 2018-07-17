@@ -39,7 +39,7 @@ This is a constructor for creating combatant objects. It takes eight parameters:
 - **initiative** (number): bonus to the initiative roll
 - **attack_bonus** (number): bonus to the attack roll
 
-The following three parameters are for the combatants first attack. All attack are stored in ```combatant.attacks```.
+The following three parameters are for the combatants first attack. All attacks are stored in ```combatant.attacks```.
 - **damage** (number): type of dice to roll for damage
 - **dmg_dice** (number): number of dice to roll for damage
 - **dmg_bonus** (number): bonus to add to the damage roll
