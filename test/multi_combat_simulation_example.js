@@ -2,26 +2,26 @@ const Combat = require('../combat');
 const Party = require('../party');
 const Combatant = require('../combatant');
 
-c = new Combat();
-f1 = new Combatant('dwarf', 12, 13, 0, 3, 6, 1, 1);
-f2 = new Combatant('elf', 15, 13, 5, 3, 6, 1, 1);
+let c = new Combat();
+let f1 = new Combatant('dwarf', 12, 13, 0, 3, 6, 1, 1);
+let f2 = new Combatant('elf', 15, 13, 5, 3, 6, 1, 1);
 
-o1 = new Combatant('goblin1', 11, 12, 2, 2, 6, 1, 0);
-o2 = new Combatant('goblin2', 9, 12, 2, 2, 6, 1, 0);
+let o1 = new Combatant('goblin1', 11, 12, 2, 2, 6, 1, 0);
+let o2 = new Combatant('goblin2', 9, 12, 2, 2, 6, 1, 0);
 
-e1 = new Combatant('orc1', 12, 10, 1, 3, 6, 1, 1);
-e2 = new Combatant('orc2', 10, 11, 1, 3, 6, 1, 1);
+let e1 = new Combatant('orc1', 12, 10, 1, 3, 6, 1, 1);
+let e2 = new Combatant('orc2', 10, 11, 1, 3, 6, 1, 1);
 
 
-p1 = new Party();
+let p1 = new Party();
 p1.addMember(f1);
 p1.addMember(f2);
 
-p2 = new Party();
+let p2 = new Party();
 p2.addMember(o1);
 p2.addMember(o2);
 
-p3 = new Party();
+let p3 = new Party();
 p3.addMember(e1);
 p3.addMember(e2);
 

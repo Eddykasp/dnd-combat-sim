@@ -2,14 +2,14 @@ const Combat = require('../combat');
 const Party = require('../party');
 const Combatant = require('../combatant');
 
-c = new Combat();
-ogre = new Combatant('ogre', 59, 16, 0, 6, 10, 2, 4);
-owlbear = new Combatant('owlbear', 59, 13, 3, 7, 9, 3, 10);
+let c = new Combat();
+let ogre = new Combatant('ogre', 59, 16, 0, 6, 10, 2, 4);
+let owlbear = new Combatant('owlbear', 59, 13, 3, 7, 9, 3, 10);
 
-p1 = new Party();
+let p1 = new Party();
 p1.addMember(ogre);
 
-p2 = new Party();
+let p2 = new Party();
 p2.addMember(owlbear);
 
 c.addParty(p1, 'ogre');
