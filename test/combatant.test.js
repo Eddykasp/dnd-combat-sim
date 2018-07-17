@@ -2,14 +2,13 @@ const test = require('tape');
 const Combatant = require('../combatant.js')
 
 test('Combatant constructor', t => {
-  t.plan(6);
+  t.plan(5);
   let c = new Combatant('test_combatant', 10, 2, 2, 3, 6, 1, 1);
   t.equal(c.id, 'test_combatant', 'id');
   t.equal(c.hp, 10, 'hp');
   t.equal(c.ac, 2, 'ac');
   t.equal(c.initiative, 2, 'initiative');
   t.equal(c.atk, 3, 'atk');
-  t.equal(c.dmg_bonus, 1, 'dmg_bonus');
 });
 
 test('Combatant initiative roll', t => {

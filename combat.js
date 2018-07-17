@@ -49,18 +49,20 @@ module.exports = function(){
             }
           });
         });
-        let target = self.parties[party_id].selectTarget(opponents);
-        if (typeof target == 'undefined'){
-          return;
-        }
-        let atkRoll = combatant.attackRoll();
-        if (target.isHit(atkRoll)){
-          let damage = combatant.damageRoll();
-          target.takeDamage(damage);
-          logger(combatant.id + ' hit ' + target.id + ' and dealt ' + damage + ' damage.');
-        } else {
-          logger(combatant.id + ' missed ' + target.id + '.');
-        }
+        combatant.attacks.forEach(function(attack){
+          let target = self.parties[party_id].selectTarget(opponents);
+          if (typeof target == 'undefined'){
+            return;
+          }
+          let atkRoll = combatant.attackRoll();
+          if (target.isHit(atkRoll)){
+            let damage = attack.damageRoll();
+            target.takeDamage(damage);
+            logger(combatant.id + ' hit ' + target.id + ' and dealt ' + damage + ' damage.');
+          } else {
+            logger(combatant.id + ' missed ' + target.id + '.');
+          }
+        });
       }
     });
   };

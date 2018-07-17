@@ -1,4 +1,5 @@
-const dice = require('./dice_roller')
+const dice = require('./dice_roller');
+const Attack = require('./attack');
 
 /**
  * Constructs a combatant object.
@@ -29,21 +30,15 @@ module.exports = function(id, hp, ac, initiative, atk, dmg, dmg_dice, dmg_bonus)
   this.ac = ac;
   this.initiative = initiative;
   this.atk = atk;
-  this.dmg = dmg;
-  this.dmg_dice = dmg_dice;
-  this.dmg_bonus = dmg_bonus;
+  this.attacks = [new Attack(dmg, dmg_dice, dmg_bonus)];
+  this.addAttack = function(attack){
+    this.attacks.push(attack);
+  }
   this.rollInitiative = function(){
     return dice(20, this.initiative);
   };
   this.attackRoll = function(){
     return dice(20, atk);
-  };
-  this.damageRoll = function(){
-    let sum = 0;
-    for(let i = 0; i < this.dmg_dice; i++){
-      sum += dice(this.dmg, 0);
-    }
-    return sum + this.dmg_bonus;
   };
   this.isHit = function(attackRoll){
     if(attackRoll >= this.ac){
