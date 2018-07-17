@@ -14,20 +14,21 @@ The API provides the following interfaces:
 ```
 const dnd = require('dnd-combat-simulator');
 
-let roll = dnd.Dice(dice_type, modifier);
+let roll = dnd.dice(dice_type, modifier);
 let combatant = new dnd.Combatant(id, hp, ac, initiative, attack bonus, damage, dmg_dice, dmg_bonus);
+let attack = new dnd.Attack(dice_type, dice_number, dmg_bonus);
 let party = new dnd.Party();
 let combat = new dnd.Combat();
 ```
 
-### Dice
+### dice
 This is a dice rolling utility function, which takes two parameters:
 - dice_type (number): The number of sides on the dice
 - modifier (number): The modifier is added to the result of the throw
 
 In order to simulate rolling a d8+2 we call the function as follows:
 ```
-let roll = dnd.Dice(8, 2);
+let roll = dnd.dice(8, 2);
 ```
 
 ### Combatant
@@ -37,17 +38,17 @@ This is a constructor for creating combatant objects. It takes eight parameters:
 - ac (number): armour class
 - initiative (number): bonus to the initiative roll
 - attack bonus (number): bonus to the attack roll
+
+The following three parameters are for the combatants first attack. All attack are stored in ```combatant.attacks```.
 - damage (number): type of dice to roll for damage
-- dmg_dice (number): the number of dice to roll for damage
-- dmg_bonus (number): the bonus to add to the damage roll
+- dmg_dice (number): number of dice to roll for damage
+- dmg_bonus (number): bonus to add to the damage roll
 
 #### Methods
 ##### rollInitiative() : number
 Rolls for initiative and returns the result.
 ##### attackRoll() : number
 Rolls an attack roll and returns the result.
-##### damageRoll() : number
-Rolls for damage and returns the amount of damage dealt.
 ##### isHit(attackRoll) : boolean
 Checks whether the passed in attack roll hits or not.
 ##### takeDamage(damageRoll) : undefined
@@ -57,6 +58,15 @@ Checks whether the combatant is dead or not.
 ##### reset() : undefined
 Resets the combatant to the pre-combat state.
 
+### Attack
+The attack constructor takes three parameters:
+- dice_type (number): type of dice to roll for damage
+- dice_number (number): number of dice to roll for damage
+- dmg_bonus (number): bonus to add to the damage roll
+
+#### Methods
+##### damageRoll() : number
+Rolls for damage and returns the amount of damage dealt.
 
 ### Party
 The party object serves to group multiple combatants together, they will fight together and follow a common party strategy. The members of a party can be accessed through ```party.members```.
