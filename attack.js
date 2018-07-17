@@ -1,3 +1,5 @@
+const dice = require('./dice_roller');
+
 module.exports = function(dice_type, dice_number){
   this.dice_type = dice_type;
   this.dice_number = dice_number;

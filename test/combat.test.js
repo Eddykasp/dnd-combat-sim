@@ -6,6 +6,8 @@ const _ = require('underscore');
 
 test('Initialise new combat', t => {
 
+  let hole = function(string){};
+
   c = new Combat();
   f1 = new Combatant('dwarf', 10, 12, 0, 3, 6, 3, 1);
   f2 = new Combatant('elf', 15, 12, 5, 3, 6, 3, 1);
@@ -24,7 +26,7 @@ test('Initialise new combat', t => {
   c.addParty(p1, 'players');
   c.addParty(p2, 'goblins');
 
-  c.initiateCombat();
+  c.initiateCombat(hole);
   let resultOrder = c.turnList.map(a => a.roll);
   sorted = _.every(resultOrder, function(value, index, array){
     return index === 0 || array[index-1] >= value;
