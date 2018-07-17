@@ -1,11 +1,13 @@
 const Combatant = require('./combatant');
-const Dice = require('./dice_roller');
+const dice = require('./dice_roller');
 const Party = require('./party');
 const Combat = require('./combat');
+const Attack = require('./attack');
 
 module.exports = {
   Combatant: Combatant,
-  Dice: Dice,
+  dice: dice,
   Party: Party,
-  Combat: Combat
+  Combat: Combat,
+  Attack: Attack
 }
