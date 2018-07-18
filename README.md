@@ -45,6 +45,8 @@ The following three parameters are for the combatants first attack. All attacks 
 - **dmg_bonus** (number): bonus to add to the damage roll
 
 #### Methods
+##### **addAttack**(attack) : undefined
+Adds a new attack to the combatant.
 ##### **rollInitiative**() : number
 Rolls for initiative and returns the result.
 ##### **attackRoll**() : number
