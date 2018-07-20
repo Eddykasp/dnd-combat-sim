@@ -1,5 +1,6 @@
 const test = require('tape');
-const Combatant = require('../combatant.js')
+const Combatant = require('../combatant');
+const Buff = require('../buff');
 
 test('Combatant constructor', t => {
   t.plan(5);
@@ -59,4 +60,33 @@ test('Combatant is dead/unconscious', t => {
   t.false(c.isDead(), 'hp: 10 (alive)');
   c.takeDamage(10);
   t.true(c.isDead(), 'hp: 0 (dead)');
+});
+
+test('Combatant buffs', t => {
+  t.plan(8);
+  let c = new Combatant('test_combatant', 10, 12, 2, 3, 6, 3, 1);
+  c.addBuff(new Buff('ac_plus', 1, {ac: 2}));
+  c.addBuff(new Buff('initiative_plus', 1, {initiative: 2}));
+  c.addBuff(new Buff('atk_plus', 1, {atk: 2}));
+
+  let ac = c.stats.ac();
+  t.equal(ac, 14, 'Buffed AC is 14');
+  let initiative = c.stats.initiative();
+  t.equal(initiative, 4, 'Buffed initiative is 4');
+  let atk = c.stats.atk();
+  t.equal(atk, 5, 'Buffed attak bonus is 5');
+
+  t.false(c.isHit(13), 'missed hit with active AC buff');
+  t.true(c.isHit(14), 'hit with active AC buff');
+
+  c.tickBuffs();
+  c.checkBuffs();
+
+  ac = c.stats.ac();
+  t.equal(ac, 12, 'Non-Buffed AC is 12');
+  initiative = c.stats.initiative();
+  t.equal(initiative, 2, 'Non-Buffed initiative is 2');
+  atk = c.stats.atk();
+  t.equal(atk, 3, 'Non-Buffed attak bonus is 3');
+
 });

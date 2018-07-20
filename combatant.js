@@ -31,17 +31,37 @@ module.exports = function(id, hp, ac, initiative, atk, dmg, dmg_dice, dmg_bonus)
   this.initiative = initiative;
   this.atk = atk;
   this.attacks = [new Attack(dmg, dmg_dice, dmg_bonus)];
+  this.buffs = [];
   this.addAttack = function(attack){
     this.attacks.push(attack);
-  }
+  };
+  this.addBuff = function(buff){
+    this.buffs.push(buff);
+  };
+  this.checkBuffs = function(){
+    this.buffs = this.buffs.filter(function(buff){
+      return !!buff.time;
+    });
+  };
+  this.tickBuffs = function(){
+    this.buffs.forEach(function(buff){
+      buff.time -= 1;
+    });
+  };
+  this.stats = {
+    hp: function(){return this.parent.hp;},
+    ac: function(){return sumBuffs(this.parent, 'ac');},
+    initiative: function(){return sumBuffs(this.parent, 'initiative');},
+    atk: function(){return sumBuffs(this.parent, 'atk');}
+  };
   this.rollInitiative = function(){
     return dice(20, this.initiative);
   };
   this.attackRoll = function(){
-    return dice(20, atk);
+    return dice(20, this.stats.atk());
   };
   this.isHit = function(attackRoll){
-    if(attackRoll >= this.ac){
+    if(attackRoll >= this.stats.ac()){
       return true;
     }
   };
@@ -61,4 +81,19 @@ module.exports = function(id, hp, ac, initiative, atk, dmg, dmg_dice, dmg_bonus)
   this.reset = function(){
     this.hp = this.max_hp;
   };
-};
+  this.init = function(){
+    this.stats.parent = this;
+    delete this.init;
+  };
+  this.init();
+}
+
+function sumBuffs(self, stat){
+  let total = self[stat];
+  self.buffs.forEach(function(buff){
+    if (!!buff.bonus[stat]){
+      total += buff.bonus[stat];
+    }
+  });
+  return total;
+}
