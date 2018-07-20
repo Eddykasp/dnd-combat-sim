@@ -4,6 +4,7 @@ const Party = require('./party');
 const Combat = require('./combat');
 const Attack = require('./attack');
 const Buff = require('./buff');
+const reaction = require('./reaction');
 
 module.exports = {
   Combatant: Combatant,
@@ -11,5 +12,6 @@ module.exports = {
   Party: Party,
   Combat: Combat,
   Attack: Attack,
-  Buff: Buff
+  Buff: Buff,
+  reaction: reaction
 };
