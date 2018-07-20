@@ -46,15 +46,15 @@ The following three parameters are for the combatants first attack. All attacks 
 
 #### Methods
 ##### **addAttack**(attack) : undefined
-Adds a new attack to the combatant. [Details of the attack object.](#Attack)
+Adds a new attack to the combatant. [Details of the attack object.](#attack)
 ##### **addBuff**(buff) : undefined
-Adds a new temporary buff to the combatant. [Details of the buff object.](#Buff)
+Adds a new temporary buff to the combatant. [Details of the buff object.](#buff)
 ##### **checkBuffs**() : undefined
 Checks for expired buffs and removes them from the combatant. Is called by combat at the end of a combatants turn and is internally called by combatant before returning an isHit call.
 ##### **tickBuffs**() : undefined
 Decrements the remaining time remaining for all active buffs. Is called at the beginning of a combatants turn each round.
 ##### **addReaction**() : undefined
-Adds a reaction that can trigger once per round on being attacked. [Details of the reaction object.](#reaction.Reaction)
+Adds a reaction that can trigger once per round on being attacked. [Details of the reaction object.](#reactionreaction)
 ##### **rollInitiative**() : number
 Rolls for initiative and returns the result.
 ##### **attackRoll**() : number
