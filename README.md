@@ -53,6 +53,8 @@ Adds a new temporary buff to the combatant. [Details of the buff object.](#Buff)
 Checks for expired buffs and removes them from the combatant. Is called by combat at the end of a combatants turn and is internally called by combatant before returning an isHit call.
 ##### **tickBuffs**() : undefined
 Decrements the remaining time remaining for all active buffs. Is called at the beginning of a combatants turn each round.
+##### **addReaction**() : undefined
+Adds a reaction that can trigger once per round on being attacked. [Details of the reaction object.](#reaction.Reaction)
 ##### **rollInitiative**() : number
 Rolls for initiative and returns the result.
 ##### **attackRoll**() : number
@@ -92,6 +94,13 @@ The buff constructor takes three parameters:
   - *ac* (number)
   - *initiative* (number)
   - *atk* (number)
+
+### reaction.Reaction
+The Reaction constructor takes a trigger function as a parameter. This trigger function is called when checking if reaction is triggered before a hit is applied. The signature of this function must be as follows: ```triggerFunction(self, atkRoll) : boolean```. It should contain the effect of the reaction (a buff maybe) and the return value should reflect whether or not the reaction was triggered.
+
+#### reaction.reactions
+The reactions object contains the following prepared trigger functions, which can be used to create reactions:
+- **parry**: parrying allows the combatant to raise their AC by 2 for one attack each round
 
 ### Party
 The party object serves to group multiple combatants together, they will fight together and follow a common party strategy. The members of a party can be accessed through ```party.members```.
