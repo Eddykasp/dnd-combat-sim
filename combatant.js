@@ -55,7 +55,7 @@ module.exports = function(id, hp, ac, initiative, atk, dmg, dmg_dice, dmg_bonus)
     atk: function(){return sumBuffs(this.parent, 'atk');}
   };
   this.rollInitiative = function(){
-    return dice(20, this.initiative);
+    return dice(20, this.stats.initiative());
   };
   this.attackRoll = function(){
     return dice(20, this.stats.atk());
