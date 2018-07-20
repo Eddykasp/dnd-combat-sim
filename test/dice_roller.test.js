@@ -8,7 +8,7 @@ test('d4 is in range', t => {
   } else {
     t.pass('Dice roll within range');
   }
-  t.end()
+  t.end();
 });
 
 test('d6 is in range', t => {
@@ -18,7 +18,7 @@ test('d6 is in range', t => {
   } else {
     t.pass('Dice roll within range');
   }
-  t.end()
+  t.end();
 });
 
 test('d8 is in range', t => {
@@ -28,7 +28,7 @@ test('d8 is in range', t => {
   } else {
     t.pass('Dice roll within range');
   }
-  t.end()
+  t.end();
 });
 
 test('d10 is in range', t => {
@@ -38,7 +38,7 @@ test('d10 is in range', t => {
   } else {
     t.pass('Dice roll within range');
   }
-  t.end()
+  t.end();
 });
 
 test('d12 is in range', t => {
@@ -48,7 +48,7 @@ test('d12 is in range', t => {
   } else {
     t.pass('Dice roll within range');
   }
-  t.end()
+  t.end();
 });
 
 test('d20 is in range', t => {
@@ -58,7 +58,7 @@ test('d20 is in range', t => {
   } else {
     t.pass('Dice roll within range');
   }
-  t.end()
+  t.end();
 });
 
 test('d4+2 is in range', t => {
@@ -68,7 +68,7 @@ test('d4+2 is in range', t => {
   } else {
     t.pass('Dice roll within range');
   }
-  t.end()
+  t.end();
 });
 
 test('d6+2 is in range', t => {
@@ -78,7 +78,7 @@ test('d6+2 is in range', t => {
   } else {
     t.pass('Dice roll within range');
   }
-  t.end()
+  t.end();
 });
 
 test('d8+2 is in range', t => {
@@ -88,7 +88,7 @@ test('d8+2 is in range', t => {
   } else {
     t.pass('Dice roll within range');
   }
-  t.end()
+  t.end();
 });
 
 test('d10+2 is in range', t => {
@@ -98,7 +98,7 @@ test('d10+2 is in range', t => {
   } else {
     t.pass('Dice roll within range');
   }
-  t.end()
+  t.end();
 });
 
 test('d12+2 is in range', t => {
@@ -108,7 +108,7 @@ test('d12+2 is in range', t => {
   } else {
     t.pass('Dice roll within range');
   }
-  t.end()
+  t.end();
 });
 
 test('d20+2 is in range', t => {
@@ -118,5 +118,5 @@ test('d20+2 is in range', t => {
   } else {
     t.pass('Dice roll within range');
   }
-  t.end()
+  t.end();
 });

@@ -11,4 +11,4 @@ module.exports = function(dice_type, dice_number, dmg_bonus){
     }
     return sum + this.dmg_bonus;
   };
-}
+};

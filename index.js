@@ -12,4 +12,4 @@ module.exports = {
   Combat: Combat,
   Attack: Attack,
   Buff: Buff
-}
+};

@@ -5,7 +5,7 @@ const Buff = require('../buff');
 const test = require('tape');
 const _ = require('underscore');
 
-const hole = function(string){};
+const hole = function(){};
 
 test('Initialise new combat', t => {
 
@@ -56,7 +56,7 @@ test('Run fight', t => {
 });
 
 test('Run round with buffs', t => {
-  t.plan(6)
+  t.plan(6);
   let c = new Combat();
   let ogre = new Combatant('ogre', 59, 16, 0, 6, 10, 2, 4);
   ogre.addBuff(new Buff('acPlus', 1, {ac: 2}));

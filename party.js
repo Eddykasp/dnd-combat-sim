@@ -29,7 +29,7 @@ module.exports = function(){
   };
   this.selectTarget = function(opponents){
     opponents.sort(this.combatStrategy);
-    let target = opponents[0]
+    let target = opponents[0];
     return target;
   };
-}
+};

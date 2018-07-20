@@ -86,12 +86,12 @@ module.exports = function(id, hp, ac, initiative, atk, dmg, dmg_dice, dmg_bonus)
     delete this.init;
   };
   this.init();
-}
+};
 
 function sumBuffs(self, stat){
   let total = self[stat];
   self.buffs.forEach(function(buff){
-    if (!!buff.bonus[stat]){
+    if (buff.bonus[stat]){
       total += buff.bonus[stat];
     }
   });
