@@ -16,11 +16,10 @@
     "url": "https://github.com/Eddykasp/dnd-combat-sim/issues"
   },
   "homepage": "https://github.com/Eddykasp/dnd-combat-sim#readme",
-  "dependencies": {
-    "underscore": "^1.9.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "tap-spec": "^5.0.0",
-    "tape": "^4.9.1"
+    "tape": "^4.9.1",
+    "underscore": "^1.9.1"
   }
 }
