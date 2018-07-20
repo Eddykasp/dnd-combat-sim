@@ -46,7 +46,13 @@ The following three parameters are for the combatants first attack. All attacks 
 
 #### Methods
 ##### **addAttack**(attack) : undefined
-Adds a new attack to the combatant.
+Adds a new attack to the combatant. [Details of the attack object.](#Attack)
+##### **addBuff**(buff) : undefined
+Adds a new temporary buff to the combatant. [Details of the buff object.](#Buff)
+##### **checkBuffs**() : undefined
+Checks for expired buffs and removes them from the combatant. Is called by combat at the end of a combatants turn and is internally called by combatant before returning an isHit call.
+##### **tickBuffs**() : undefined
+Decrements the remaining time remaining for all active buffs. Is called at the beginning of a combatants turn each round.
 ##### **rollInitiative**() : number
 Rolls for initiative and returns the result.
 ##### **attackRoll**() : number
@@ -59,6 +65,14 @@ Deals the damage passed in to the combatant.
 Checks whether the combatant is dead or not.
 ##### **reset**() : undefined
 Resets the combatant to the pre-combat state.
+##### **stats.hp**() : number
+Returns the combatants current hit points taking any active buffs into consideration.
+##### **stats.ac**() : number
+Returns the combatants current armour class taking any active buffs into consideration.
+##### **stats.initiative**() : number
+Returns the combatants current initiative taking any active buffs into consideration.
+##### **stats.atk**() : number
+Returns the combatants current attack bonus taking any active buffs into consideration.
 
 ### Attack
 The attack constructor takes three parameters:
@@ -69,6 +83,15 @@ The attack constructor takes three parameters:
 #### Methods
 ##### **damageRoll**() : number
 Rolls for damage and returns the amount of damage dealt.
+
+### Buff
+The buff constructor takes three parameters:
+- **id** (string): an identifier for the buff
+- **time** (number): the number of rounds this buff should stay active. Buffs with time equal to zero are removed either after an isHit check or at the end of a combatants turn.
+- **bonus** (object): the bonus(es) granted by the buff, the supported properties are:
+  - *ac* (number)
+  - *initiative* (number)
+  - *atk* (number)
 
 ### Party
 The party object serves to group multiple combatants together, they will fight together and follow a common party strategy. The members of a party can be accessed through ```party.members```.
