@@ -32,11 +32,16 @@ module.exports = function(id, hp, ac, initiative, atk, dmg, dmg_dice, dmg_bonus)
   this.atk = atk;
   this.attacks = [new Attack(dmg, dmg_dice, dmg_bonus)];
   this.buffs = [];
+  this.reacted = false;
+  this.reactions = [];
   this.addAttack = function(attack){
     this.attacks.push(attack);
   };
   this.addBuff = function(buff){
     this.buffs.push(buff);
+  };
+  this.addReaction = function(reaction){
+    this.reactions.push(reaction);
   };
   this.checkBuffs = function(){
     this.buffs = this.buffs.filter(function(buff){
@@ -61,9 +66,15 @@ module.exports = function(id, hp, ac, initiative, atk, dmg, dmg_dice, dmg_bonus)
     return dice(20, this.stats.atk());
   };
   this.isHit = function(attackRoll){
+    let nextReaction = this.reactions.length - 1;
+    while(!this.reacted && nextReaction >= 0 && nextReaction < this.reactions.length){
+      this.reacted = this.reactions[nextReaction].trigger(this, attackRoll);
+      nextReaction++;
+    }
     if(attackRoll >= this.stats.ac()){
       return true;
     }
+    return false;
   };
   this.takeDamage = function(damageRoll){
     this.hp -= damageRoll;
@@ -80,6 +91,7 @@ module.exports = function(id, hp, ac, initiative, atk, dmg, dmg_dice, dmg_bonus)
   };
   this.reset = function(){
     this.hp = this.max_hp;
+    this.reacted = false;
   };
   this.init = function(){
     this.stats.parent = this;

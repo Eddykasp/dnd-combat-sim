@@ -1,6 +1,7 @@
 const test = require('tape');
 const Combatant = require('../combatant');
 const Buff = require('../buff');
+const reaction = require('../reaction');
 
 test('Combatant constructor', t => {
   t.plan(5);
@@ -74,7 +75,7 @@ test('Combatant buffs', t => {
   let initiative = c.stats.initiative();
   t.equal(initiative, 4, 'Buffed initiative is 4');
   let atk = c.stats.atk();
-  t.equal(atk, 5, 'Buffed attak bonus is 5');
+  t.equal(atk, 5, 'Buffed attack bonus is 5');
 
   t.false(c.isHit(13), 'missed hit with active AC buff');
   t.true(c.isHit(14), 'hit with active AC buff');
@@ -87,6 +88,31 @@ test('Combatant buffs', t => {
   initiative = c.stats.initiative();
   t.equal(initiative, 2, 'Non-Buffed initiative is 2');
   atk = c.stats.atk();
-  t.equal(atk, 3, 'Non-Buffed attak bonus is 3');
+  t.equal(atk, 3, 'Non-Buffed attack bonus is 3');
 
+});
+
+test('Combatant reactions', t => {
+  t.plan(6);
+  let c = new Combatant('test_combatant', 10, 12, 2, 3, 6, 3, 1);
+  c.addReaction(new reaction.Reaction(reaction.reactions.parry));
+
+  t.false(c.isHit(12), 'parry triggered (atk 12)');
+  c.checkBuffs();
+  t.true(c.isHit(12), 'parry no longer available');
+  c.checkBuffs();
+
+  c.reacted = false;
+
+  t.false(c.isHit(13), 'parry triggered (atk 13)');
+  c.checkBuffs();
+  t.true(c.isHit(13), 'parry no longer available');
+  c.checkBuffs();
+
+  c.reacted = false;
+
+  t.true(c.isHit(14), 'parry not triggered (14)');
+  c.checkBuffs();
+  t.false(c.isHit(13), 'parry triggered (13)');
+  c.checkBuffs();
 });

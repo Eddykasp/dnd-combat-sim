@@ -34,6 +34,7 @@ module.exports = function(){
       let combatant = current_combatant.combatant;
       let party_id = current_combatant.party_id;
       combatant.tickBuffs();
+      combatant.reacted = false;
       if (!combatant.isDead()){
         let opponentParties = [];
         for (let p_id in self.parties){
