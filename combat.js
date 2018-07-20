@@ -30,10 +30,12 @@ module.exports = function(){
     logger('\n');
   };
   this.runRound = function(logger){
+    logger('Next round:');
     let self = this;
     self.turnList.forEach(function(current_combatant){
       let combatant = current_combatant.combatant;
       let party_id = current_combatant.party_id;
+      combatant.tickBuffs();
       if (!combatant.isDead()){
         let opponentParties = [];
         for (let p_id in self.parties){
@@ -64,6 +66,7 @@ module.exports = function(){
           }
         });
       }
+      combatant.checkBuffs();
     });
   };
   this.runFight = function(logger){

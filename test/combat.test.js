@@ -1,6 +1,7 @@
 const Combat = require('../combat');
 const Party = require('../party');
 const Combatant = require('../combatant');
+const Buff = require('../buff');
 const test = require('tape');
 const _ = require('underscore');
 
@@ -52,4 +53,29 @@ test('Run fight', t => {
   c.runFight(hole);
   t.pass('Fight runs without errors');
   t.end();
+});
+
+test('Run round with buffs', t => {
+  t.plan(6)
+  let c = new Combat();
+  let ogre = new Combatant('ogre', 59, 16, 0, 6, 10, 2, 4);
+  ogre.addBuff(new Buff('acPlus', 1, {ac: 2}));
+  ogre.addBuff(new Buff('initiativePlus', 1, {initiative: 2}));
+  ogre.addBuff(new Buff('atkPlus', 1, {atk: 2}));
+
+  let p1 = new Party();
+  p1.addMember(ogre);
+
+  c.addParty(p1, 'ogre');
+
+  t.equal(ogre.stats.ac(), 18, 'Buffed AC before round');
+  t.equal(ogre.stats.initiative(), 2, 'Buffed initiative before round');
+  t.equal(ogre.stats.atk(), 8, 'Buffed attack bonus before round');
+
+  c.initiateCombat(hole);
+  c.runRound(hole);
+
+  t.equal(ogre.stats.ac(), 16, 'Worn off AC buff after one round');
+  t.equal(ogre.stats.initiative(), 0, 'Worn off initiative buff after one round');
+  t.equal(ogre.stats.atk(), 6, 'Worn off attack bonus buff after one round');
 });
