@@ -1,4 +1,4 @@
-const Attack = require('../attack.js');
+const Attack = require('../src/attack.js');
 const test = require('tape');
 
 test('Attack damage roll single die', t => {

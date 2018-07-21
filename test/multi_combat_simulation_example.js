@@ -1,6 +1,6 @@
-const Combat = require('../combat');
-const Party = require('../party');
-const Combatant = require('../combatant');
+const Combat = require('../src/combat');
+const Party = require('../src/party');
+const Combatant = require('../src/combatant');
 
 let c = new Combat();
 let f1 = new Combatant('dwarf', 12, 13, 0, 3, 6, 1, 1);

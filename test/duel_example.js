@@ -1,7 +1,7 @@
-const Combat = require('../combat');
-const Party = require('../party');
-const Combatant = require('../combatant');
-const Attack = require('../attack');
+const Combat = require('../src/combat');
+const Party = require('../src/party');
+const Combatant = require('../src/combatant');
+const Attack = require('../src/attack');
 
 let c = new Combat();
 let ogre = new Combatant('ogre', 59, 16, 0, 6, 10, 2, 4);

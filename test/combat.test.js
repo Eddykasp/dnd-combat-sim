@@ -1,7 +1,7 @@
-const Combat = require('../combat');
-const Party = require('../party');
-const Combatant = require('../combatant');
-const Buff = require('../buff');
+const Combat = require('../src/combat');
+const Party = require('../src/party');
+const Combatant = require('../src/combatant');
+const Buff = require('../src/buff');
 const test = require('tape');
 const _ = require('underscore');
 

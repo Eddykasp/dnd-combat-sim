@@ -1,5 +1,5 @@
 const test = require('tape');
-const dice = require('../dice_roller');
+const dice = require('../src/dice_roller');
 
 test('d4 is in range', t => {
   let roll = dice(4, 0);

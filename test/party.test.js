@@ -1,6 +1,6 @@
-const Party = require('../party');
-const Combatant = require('../combatant');
-const Attack = require('../attack');
+const Party = require('../src/party');
+const Combatant = require('../src/combatant');
+const Attack = require('../src/attack');
 const test = require('tape');
 
 test('Test highest hp combat strategy', t => {

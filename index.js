@@ -1,10 +1,10 @@
-const Combatant = require('./combatant');
-const dice = require('./dice_roller');
-const Party = require('./party');
-const Combat = require('./combat');
-const Attack = require('./attack');
-const Buff = require('./buff');
-const reaction = require('./reaction');
+const Combatant = require('./src/combatant');
+const dice = require('./src/dice_roller');
+const Party = require('./src/party');
+const Combat = require('./src/combat');
+const Attack = require('./src/attack');
+const Buff = require('./src/buff');
+const reaction = require('./src/reaction');
 
 module.exports = {
   Combatant: Combatant,

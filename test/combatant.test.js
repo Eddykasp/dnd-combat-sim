@@ -1,7 +1,7 @@
 const test = require('tape');
-const Combatant = require('../combatant');
-const Buff = require('../buff');
-const reaction = require('../reaction');
+const Combatant = require('../src/combatant');
+const Buff = require('../src/buff');
+const reaction = require('../src/reaction');
 
 test('Combatant constructor', t => {
   t.plan(5);
