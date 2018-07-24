@@ -93,26 +93,32 @@ test('Combatant buffs', t => {
 });
 
 test('Combatant reactions', t => {
-  t.plan(6);
+  t.plan(12);
   let c = new Combatant('test_combatant', 10, 12, 2, 3, 6, 3, 1);
   c.addReaction(new reaction.Reaction(reaction.reactions.parry));
 
   t.false(c.isHit(12), 'parry triggered (atk 12)');
+  t.equal(c.stats.ac(), 14, 'current ac: 12 + 2');
   c.checkBuffs();
   t.true(c.isHit(12), 'parry no longer available');
+  t.equal(c.stats.ac(), 12, 'current ac: 12');
   c.checkBuffs();
 
   c.reacted = false;
 
   t.false(c.isHit(13), 'parry triggered (atk 13)');
+  t.equal(c.stats.ac(), 14, 'current ac: 12 + 2');
   c.checkBuffs();
   t.true(c.isHit(13), 'parry no longer available');
+  t.equal(c.stats.ac(), 12, 'current ac: 12');
   c.checkBuffs();
 
   c.reacted = false;
 
   t.true(c.isHit(14), 'parry not triggered (14)');
+  t.equal(c.stats.ac(), 12, 'current ac: 12');
   c.checkBuffs();
   t.false(c.isHit(13), 'parry triggered (13)');
+  t.equal(c.stats.ac(), 14, 'current ac: 12 + 2');
   c.checkBuffs();
 });

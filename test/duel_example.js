@@ -29,6 +29,12 @@ for (let party_id in c.parties){
   parties[party_id] = 0;
 }
 
+let count = 1;
+winners.forEach(function(winner_party){
+  count++;
+  parties[winner_party[0].party_id] += 1;
+});
+
 console.log('\nWin Ratios');
 for (let p in parties){
   console.log(p + ': ' + parties[p]/100 + '%');
