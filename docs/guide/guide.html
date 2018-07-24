@@ -27,12 +27,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <p>This guide shows typical use cases and how to simulate DnD combat encounters using this library.</p>
+              <p>This guide shows typical use cases and how to simulate DnD combat encounters using this library. We will construct a fight between several groups of combatants.</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> dnd = <span class="hljs-built_in">require</span>(<span class="hljs-string">'dnd-combat-simulator'</span>);</pre></div></div>
             
         </li>
         
@@ -43,21 +40,104 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
+              <p>const dnd = require(‘dnd-combat-simulator’);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> dnd = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../index'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
               <p>First we create a new combat object.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">let</span> combat = <span class="hljs-keyword">new</span> dnd.Combat();
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">let</span> combat = <span class="hljs-keyword">new</span> dnd.Combat();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Our first group of combatants is a pair of ogres.</p>
 
-<span class="hljs-keyword">let</span> ogres = <span class="hljs-keyword">new</span> dnd.Party();
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">let</span> ogres = <span class="hljs-keyword">new</span> dnd.Party();
 ogres.addMember(<span class="hljs-keyword">new</span> dnd.Combatant(<span class="hljs-string">'ogre1'</span>, <span class="hljs-number">59</span>, <span class="hljs-number">16</span>, <span class="hljs-number">0</span>, <span class="hljs-number">6</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>));
-ogres.addMember(<span class="hljs-keyword">new</span> dnd.Combatant(<span class="hljs-string">'ogre2'</span>, <span class="hljs-number">59</span>, <span class="hljs-number">16</span>, <span class="hljs-number">0</span>, <span class="hljs-number">6</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>));
-ogres.combatStrategy = ogres.combatStrategies.highest_hp;
-combat.addParty(ogres, <span class="hljs-string">'ogres'</span>);
+ogres.addMember(<span class="hljs-keyword">new</span> dnd.Combatant(<span class="hljs-string">'ogre2'</span>, <span class="hljs-number">59</span>, <span class="hljs-number">16</span>, <span class="hljs-number">0</span>, <span class="hljs-number">6</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>The combat strategy of the ogres will be to target the strongest enemy on the battlefield.</p>
 
-<span class="hljs-keyword">let</span> owlbears = <span class="hljs-keyword">new</span> dnd.Party();
-<span class="hljs-keyword">let</span> owlbear1 = <span class="hljs-keyword">new</span> dnd.Combatant(<span class="hljs-string">'owlbear1'</span>, <span class="hljs-number">59</span>, <span class="hljs-number">13</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>);
-owlbear1.addAttack(<span class="hljs-keyword">new</span> dnd.Attack(<span class="hljs-number">8</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>));
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>ogres.combatStrategy = ogres.combatStrategies.highest_hp;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Finally we need to add the party to the combat and give it a name.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>combat.addParty(ogres, <span class="hljs-string">'ogres'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>The second group are three owlbears.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">let</span> owlbears = <span class="hljs-keyword">new</span> dnd.Party();
+<span class="hljs-keyword">let</span> owlbear1 = <span class="hljs-keyword">new</span> dnd.Combatant(<span class="hljs-string">'owlbear1'</span>, <span class="hljs-number">59</span>, <span class="hljs-number">13</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Owlbears have multiple attacks each turn. We will add their second attack here.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>owlbear1.addAttack(<span class="hljs-keyword">new</span> dnd.Attack(<span class="hljs-number">8</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>));
 <span class="hljs-keyword">let</span> owlbear2 = <span class="hljs-keyword">new</span> dnd.Combatant(<span class="hljs-string">'owlbear2'</span>, <span class="hljs-number">59</span>, <span class="hljs-number">13</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>);
 owlbear2.addAttack(<span class="hljs-keyword">new</span> dnd.Attack(<span class="hljs-number">8</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>));
 <span class="hljs-keyword">let</span> owlbear3 = <span class="hljs-keyword">new</span> dnd.Combatant(<span class="hljs-string">'owlbear3'</span>, <span class="hljs-number">59</span>, <span class="hljs-number">13</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>);
@@ -65,12 +145,53 @@ owlbear3.addAttack(<span class="hljs-keyword">new</span> dnd.Attack(<span class=
 owlbears.addMember(owlbear1);
 owlbears.addMember(owlbear2);
 owlbears.addMember(owlbear3);
-combat.addParty(owlbears, <span class="hljs-string">'owlbears'</span>);
+combat.addParty(owlbears, <span class="hljs-string">'owlbears'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>The third group of fighters are three knights.</p>
 
-<span class="hljs-keyword">let</span> knights = <span class="hljs-keyword">new</span> dnd.Party();
-<span class="hljs-keyword">let</span> knight1 = <span class="hljs-keyword">new</span> dnd.Combatant(<span class="hljs-string">'knight1'</span>, <span class="hljs-number">52</span>, <span class="hljs-number">18</span>, <span class="hljs-number">0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);
-knight1.addAttack(<span class="hljs-keyword">new</span> dnd.Attack(<span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>));
-knight1.addReaction(<span class="hljs-keyword">new</span> dnd.reaction.Reaction(dnd.reaction.reactions.parry));
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">let</span> knights = <span class="hljs-keyword">new</span> dnd.Party();
+<span class="hljs-keyword">let</span> knight1 = <span class="hljs-keyword">new</span> dnd.Combatant(<span class="hljs-string">'knight1'</span>, <span class="hljs-number">52</span>, <span class="hljs-number">18</span>, <span class="hljs-number">0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Knights also have a second attack.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>knight1.addAttack(<span class="hljs-keyword">new</span> dnd.Attack(<span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Knights have a parry reaction, which lets them increase their armour class by two once per round.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>knight1.addReaction(<span class="hljs-keyword">new</span> dnd.reaction.Reaction(dnd.reaction.reactions.parry));
 <span class="hljs-keyword">let</span> knight2 = <span class="hljs-keyword">new</span> dnd.Combatant(<span class="hljs-string">'knight2'</span>, <span class="hljs-number">52</span>, <span class="hljs-number">18</span>, <span class="hljs-number">0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);
 knight2.addAttack(<span class="hljs-keyword">new</span> dnd.Attack(<span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>));
 knight2.addReaction(<span class="hljs-keyword">new</span> dnd.reaction.Reaction(dnd.reaction.reactions.parry));
@@ -79,23 +200,76 @@ knight3.addAttack(<span class="hljs-keyword">new</span> dnd.Attack(<span class="
 knight3.addReaction(<span class="hljs-keyword">new</span> dnd.reaction.Reaction(dnd.reaction.reactions.parry));
 knights.addMember(knight1);
 knights.addMember(knight2);
-knights.addMember(knight3);
-knights.combatStrategy = knights.combatStrategies.highest_dmg;
-combat.addParty(knights, <span class="hljs-string">'knights'</span>);
+knights.addMember(knight3);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Knights aim to strategically remove the most dangerous enemies from the fight first.</p>
 
-<span class="hljs-keyword">let</span> wereboars = <span class="hljs-keyword">new</span> dnd.Party();
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>knights.combatStrategy = knights.combatStrategies.highest_dmg;
+combat.addParty(knights, <span class="hljs-string">'knights'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>There is a single wereboar fighting.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">let</span> wereboars = <span class="hljs-keyword">new</span> dnd.Party();
 <span class="hljs-keyword">let</span> wereboar1 = <span class="hljs-keyword">new</span> dnd.Combatant(<span class="hljs-string">'wereboar1'</span>, <span class="hljs-number">78</span>, <span class="hljs-number">11</span>, <span class="hljs-number">0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);
 wereboar1.addAttack(<span class="hljs-keyword">new</span> dnd.Attack(<span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>));
 wereboars.addMember(wereboar1);
-combat.addParty(wereboars, <span class="hljs-string">'wereboars'</span>);
+combat.addParty(wereboars, <span class="hljs-string">'wereboars'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>In the next step we simulate the fight 10000 times and save the winners of each group. After each simulation, we need to reset the state of the combat.</p>
 
-<span class="hljs-keyword">let</span> winners = [];
-<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++){
-  winners.push(combat.runFight(<span class="hljs-built_in">console</span>.log));
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">let</span> winners = [];
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10000</span>; i++){
+  winners.push(combat.runFight());
   combat.reset();
-}
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>After finishing the simulations we calculate the win ratios for each party and print those out.</p>
 
-<span class="hljs-keyword">let</span> parties = {};
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">let</span> parties = {};
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> party_id <span class="hljs-keyword">in</span> combat.parties){
   parties[party_id] = <span class="hljs-number">0</span>;
 }
@@ -108,7 +282,7 @@ winners.forEach(<span class="hljs-function"><span class="hljs-keyword">function<
 
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'\nWin Ratios'</span>);
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> p <span class="hljs-keyword">in</span> parties){
-  <span class="hljs-built_in">console</span>.log(p + <span class="hljs-string">': '</span> + parties[p]/<span class="hljs-number">1</span> + <span class="hljs-string">'%'</span>);
+  <span class="hljs-built_in">console</span>.log(p + <span class="hljs-string">': '</span> + parties[p]/<span class="hljs-number">100</span> + <span class="hljs-string">'%'</span>);
 }</pre></div></div>
             
         </li>
