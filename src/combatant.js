@@ -50,7 +50,9 @@ module.exports = function(id, hp, ac, initiative, atk, dmg, dmg_dice, dmg_bonus)
   };
   this.tickBuffs = function(){
     this.buffs.forEach(function(buff){
-      buff.time -= 1;
+      if (buff.time > 0){
+         buff.time -= 1;
+       }
     });
   };
   this.stats = {
