@@ -32,6 +32,10 @@ In order to simulate rolling a d8+2 we call the function as follows:
 let roll = dnd.dice(8, 2);
 ```
 
+### parser.Combatant
+This parser can be used to quickly create combatants from data in a csv format. This function takes a single parameter:
+- **csvline** (string): the format for the csv line should follow [this file](https://github.com/matteoferla/DnD-battler/blob/master/beastiary.csv)
+
 ### Combatant
 This is a constructor for creating combatant objects. It takes eight parameters:
 - **id** (string): a string identifier for the combatant, used for logging, does not need to be unique
