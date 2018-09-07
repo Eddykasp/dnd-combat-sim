@@ -1,10 +1,11 @@
 {
   "name": "dnd-combat-simulator",
-  "version": "0.3.8",
+  "version": "0.3.12",
   "description": "A combat simulator for simple DnD encounters to calculate expected win probabilities.",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.test.js | tap-spec"
+    "test": "tape test/*.test.js | tap-spec",
+    "docs": "npx docco guide/guide.js"
   },
   "repository": {
     "type": "git",

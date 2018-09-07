@@ -23,9 +23,11 @@ let combat = new dnd.Combat();
 ```
 
 ### dice
-This is a dice rolling utility function, which takes two parameters:
-- **dice_type** (number): The number of sides on the dice
-- **modifier** (number): The modifier is added to the result of the throw
+This is a dice rolling utility function, which takes two parameters and an optional options object:
+- **dice_type** (number): number of sides on the dice
+- **modifier** (number): modifier is added to the result of the throw
+- **options** (object): following options are available:
+  - *advantage* (number): if advantage is smaller than zero, two dice will be rolled and the lower roll will be used, if advantage is larger than zero, the higher roll will be used
 
 In order to simulate rolling a d8+2 we call the function as follows:
 ```

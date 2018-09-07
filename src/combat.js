@@ -6,6 +6,9 @@ module.exports = function(){
   };
   this.turnList = [];
   this.initiateCombat = function(logger){
+    if (typeof logger == 'undefined'){
+      logger = function(string){};
+    }
     let self = this;
     for(let party in self.parties){
       self.parties[party].members.forEach(function(combatant){
@@ -28,7 +31,10 @@ module.exports = function(){
     logger('\n');
   };
   this.runRound = function(logger){
-    logger('Next round:');
+    if (typeof logger == 'undefined'){
+      logger = function(string){};
+    }
+    logger('\nNext round:');
     let self = this;
     self.turnList.forEach(function(current_combatant){
       let combatant = current_combatant.combatant;
@@ -69,7 +75,9 @@ module.exports = function(){
     });
   };
   this.runFight = function(logger){
-
+    if (typeof logger == 'undefined'){
+      logger = function(string){};
+    }
     this.initiateCombat(logger);
     while(this.isFightOnGoing()){
       this.runRound(logger);
