@@ -4,7 +4,8 @@
   "description": "A combat simulator for simple DnD encounters to calculate expected win probabilities.",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.test.js | tap-spec",
+    "test": "tape test/*.test.js | tap-junit -o shippable/testresults",
+    "coverage": "nyc npm test",
     "docs": "npx docco guide/guide.js"
   },
   "repository": {
@@ -19,8 +20,15 @@
   "homepage": "https://github.com/Eddykasp/dnd-combat-sim#readme",
   "dependencies": {},
   "devDependencies": {
-    "tap-spec": "^5.0.0",
+    "nyc": "^13.0.1",
+    "tap-junit": "^2.1.0",
     "tape": "^4.9.1",
     "underscore": "^1.9.1"
+  },
+  "nyc": {
+    "reporter": [
+      "cobertura"
+    ],
+    "report-dir": "./shippable/codecoverage"
   }
 }

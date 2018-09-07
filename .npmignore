@@ -2,3 +2,5 @@ test/
 .gitattributes
 docs/
 guide/
+shippable/
+.nyc_output/

@@ -76,3 +76,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+shippable
+.nyc_output
