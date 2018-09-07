@@ -5,6 +5,7 @@ const Combat = require('./src/combat');
 const Attack = require('./src/attack');
 const Buff = require('./src/buff');
 const reaction = require('./src/reaction');
+const parser = require('./src/parser');
 
 module.exports = {
   Combatant: Combatant,
@@ -13,5 +14,6 @@ module.exports = {
   Combat: Combat,
   Attack: Attack,
   Buff: Buff,
-  reaction: reaction
+  reaction: reaction,
+  parser: parser
 };
