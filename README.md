@@ -1,6 +1,7 @@
 [![npm version](https://badge.fury.io/js/dnd-combat-simulator.svg)](https://badge.fury.io/js/dnd-combat-simulator)
 [![Run Status](https://api.shippable.com/projects/5b529d8436661906001f9daa/badge?branch=master)](https://app.shippable.com/github/Eddykasp/dnd-combat-sim)
 [![Coverage Badge](https://api.shippable.com/projects/5b529d8436661906001f9daa/coverageBadge?branch=master)](https://app.shippable.com/github/Eddykasp/dnd-combat-sim)
+[![Known Vulnerabilities](https://snyk.io/test/github/eddykasp/dnd-combat-sim/badge.svg)](https://snyk.io/test/github/{username}/{repo})
 
 # dnd-combat-simulator
 This package provides an API to simulate simple DnD combat encounters and determine win ratios for the participating parties.
